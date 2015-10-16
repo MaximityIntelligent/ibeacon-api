@@ -34,6 +34,10 @@ module.exports.routes = {
 
   '/': {
     view: 'homepage'
+  },
+  'post /device/name': {
+    controller: 'DeviceController',
+    action: 'name'
   }
 
   /***************************************************************************

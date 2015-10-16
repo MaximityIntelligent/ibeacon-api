@@ -13,6 +13,9 @@ module.exports = {
   },
   uuid: {
     type: 'string'
+  },
+  cangbaojie_name: {
+    type: 'string'
   }
   }
 };
