@@ -47,18 +47,19 @@ module.exports.routes = {
       controller: 'DeviceController',
       action: 'search'
   },
-  'get /device/:id': {
+  'get /device/findcbjtag': {
       controller: 'DeviceController',
-      action: 'findOne'
+      action: 'findCbjTag'
   },
   'get /device/cbjtag':{
       controller: 'DeviceController',
       action: 'getCbjTag'
   },
-  'get /device/findcbjtag': {
+  'get /device/:id': {
       controller: 'DeviceController',
-      action: 'findCbjTag'
-  }
+      action: 'findOne'
+  },
+    
 
   /***************************************************************************
   *                                                                          *

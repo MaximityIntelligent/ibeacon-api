@@ -26,7 +26,6 @@ module.exports = {
                 res.end();
             }else{
                 res.json(results);
-
             }
         })
     },
