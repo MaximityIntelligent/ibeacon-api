@@ -18,7 +18,9 @@ module.exports = {
             });
     },
     findCbjTag: function(req, res){
-        device.find({cbj_tag: {'!': [null, '', 'undefined']}}).exec(function(err, results){
+        option = {};
+        option.cbj_tag = {'!': ['','undefined', null]};
+        device.find(option).exec(function(err, results){
             if(err){
                 res.status(500);
                 res.end();
@@ -51,7 +53,7 @@ module.exports = {
         if(area!=null&&area!=""){
             option.area = area;
         }
-        //option.cbj_tag = {'!': ['','undefined', null]};
+        option.cbj_tag = {'!': ['','undefined', null]};
         device.find(option).exec(function(err, results){
             console.log("results length"+results.length);
             res.json(results);
