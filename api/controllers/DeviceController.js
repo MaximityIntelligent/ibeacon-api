@@ -40,6 +40,7 @@ module.exports = {
         if(area!=null&&area!=""){
             option.area = area;
         }
+        option.cbj_tag = {'!': ['','undefined', null]};
         device.find(option).exec(function(err, results){
             console.log("results length"+results.length);
             res.json(results);
