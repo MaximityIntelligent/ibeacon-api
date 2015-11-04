@@ -29,7 +29,7 @@ module.exports = {
             }
         })
     },
-    search: function(req, res){
+    searchcbjtag: function(req, res){
         var location_type = req.param('location_type');
         var state = req.param('state');
         var city = req.param('city');
@@ -53,6 +53,36 @@ module.exports = {
             option.area = area;
         }
         option.cbj_tag = {'!': ['','undefined', null]};
+        device.find(option).exec(function(err, results){
+            console.log("results length"+results.length);
+            res.json(results);
+            res.end();
+        });
+    },
+    search: function(req, res){
+        var location_type = req.param('location_type');
+        var state = req.param('state');
+        var city = req.param('city');
+        var region = req.param('region');
+        var area = req.param('area');
+        var option = {};
+
+        if(location_type!=null&&location_type!=""){
+            option.location_type = location_type;
+        }
+        if (state!=null&state!="") {
+            option.state = state;
+        }
+        if (city!=null&&city!="") {
+            option.city = city;
+        }
+        if(region!=null&&region!=""){
+            option.region = region;
+        }
+        if(area!=null&&area!=""){
+            option.area = area;
+        }
+        //option.cbj_tag = {'!': ['','undefined', null]};
         device.find(option).exec(function(err, results){
             console.log("results length"+results.length);
             res.json(results);
