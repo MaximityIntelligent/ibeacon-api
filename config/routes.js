@@ -35,9 +35,25 @@ module.exports.routes = {
   '/': {
     view: 'homepage'
   },
-  'post /device/name': {
-    controller: 'DeviceController',
-    action: 'name'
+  'post /device/cbjtag': {
+      controller: 'DeviceController',
+      action: 'cbjTag'
+  },
+  'get /device': {
+      controller: 'DeviceController',
+      action: 'find'
+  },
+  'get /device/search': {
+      controller: 'DeviceController',
+      action: 'search'
+  },
+  'get /device/:id': {
+      controller: 'DeviceController',
+      action: 'findOne'
+  },
+  'get /device/cbjtag':{
+      controller: 'DeviceController',
+      action: 'getCbjTag'
   }
 
   /***************************************************************************

@@ -14,7 +14,7 @@ module.exports = {
   uuid: {
     type: 'string'
   },
-  cangbaojie_name: {
+  cbj_tag: {
     type: 'string'
   }
   }
