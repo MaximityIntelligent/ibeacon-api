@@ -18,7 +18,7 @@ module.exports = {
             });
     },
     findCbjTag: function(req, res){
-        device.find({cbj_tag: {'!': [null, "", 'undefined']}}).exec(function(err, results){
+        device.find({cbj_tag: {'!=': [null, "", 'undefined']}}).exec(function(err, results){
             if(err){
                 res.status(500);
                 res.end();
