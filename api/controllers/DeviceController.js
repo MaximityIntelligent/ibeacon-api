@@ -50,7 +50,7 @@ module.exports = {
         var id = req.param("id");
         device.findOne({id: id}).exec(function(err, result){
             res.json(result);
-            res.end();
+            res.end();  
             });
     },
     getCbjTag: function(req, res){
