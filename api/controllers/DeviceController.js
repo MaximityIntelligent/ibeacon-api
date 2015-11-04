@@ -24,7 +24,7 @@ module.exports = {
         var region = req.param('region');
         var area = req.param('area');
         var option = {};
-        console.log("search");
+
         if(location_type!=null&&location_type!=""){
             option.location_type = location_type;
         }
