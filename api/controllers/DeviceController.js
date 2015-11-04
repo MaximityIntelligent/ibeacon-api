@@ -29,7 +29,7 @@ module.exports = {
             }
         })
     },
-    searchcbjtag: function(req, res){
+    searchCbjTag: function(req, res){
         var location_type = req.param('location_type');
         var state = req.param('state');
         var city = req.param('city');
