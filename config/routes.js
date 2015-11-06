@@ -47,6 +47,10 @@ module.exports.routes = {
       controller: 'DeviceController',
       action: 'search'
   },
+  'get /device/id': {
+      controller: 'DeviceController',
+      action: 'getId'
+  },
   'get /device/:id': {
       controller: 'DeviceController',
       action: 'findOne'
