@@ -44,6 +44,7 @@ module.exports = {
         if(id!=null&&id!=""){
             option.id = id;
         }
+        
         device.find(option).exec(function(err, results){
             res.json(results);
             res.end();
@@ -54,6 +55,26 @@ module.exports = {
         device.findOne({id: id}).exec(function(err, result){
             res.json(result);
             res.end();
+        });
+    },
+    getId: function(req, res){
+        var uuid = req.param('uuid');
+        var major = req.param('major');
+        var minor = req.param('minor');
+        device.findOne({uuid: uuid, major: major, minor: minor}).exec(function(err, result){
+            var access = result.access;
+            access = (acess==null) ? 0 : access;
+            access = parseInt(access);
+            access = (access==NaN) ? 0 : access;
+            access++;
+            device.update({id: result.id},{access: access}).exec(function(err, dev){
+                if(err){
+                    res.status(500);
+                    res.end();
+                }
+                res.write(result.id);
+                res.end();
+                });
         });
     }
     

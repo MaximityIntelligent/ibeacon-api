@@ -16,7 +16,11 @@ module.exports = {
   },
   cbj_tag: {
     type: 'string'
+  },
+  access: {
+    type: 'integer'
   }
   }
-};
+}
+
 
