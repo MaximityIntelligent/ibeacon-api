@@ -63,7 +63,7 @@ module.exports = {
         var minor = req.param('minor');
         device.findOne({uuid: uuid, major: major, minor: minor}).exec(function(err, result){
             var access = result.access;
-            access = (acess==null) ? 0 : access;
+            access = (access==null) ? 0 : access;
             access = parseInt(access);
             access = (access==NaN) ? 0 : access;
             access++;
