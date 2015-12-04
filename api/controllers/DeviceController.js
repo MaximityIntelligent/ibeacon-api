@@ -22,14 +22,14 @@ module.exports = {
         var state = req.param('state');
         var city = req.param('city');
         var region = req.param('region');
-        var area = req.param('area');
+        var street = req.param('street');
         var id = req.param('id');
         var option = {};
 
         if(location_type!=null&&location_type!=""){
             option.location_type = location_type;
         }
-        if (state!=null&state!="") {
+        if (state!=null&&state!="") {
             option.state = state;
         }
         if (city!=null&&city!="") {
@@ -38,14 +38,20 @@ module.exports = {
         if(region!=null&&region!=""){
             option.region = region;
         }
-        if(area!=null&&area!=""){
-            option.area = area;
+        if(street!=null&&street!=""){
+            option.street = street;
         }
         if(id!=null&&id!=""){
             option.id = id;
         }
         
+        
         device.find(option).exec(function(err, results){
+            if(err){
+                res.status(500);
+                res.end();
+                return;
+            }
             res.json(results);
             res.end();
         });
