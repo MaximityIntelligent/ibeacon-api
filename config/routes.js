@@ -35,7 +35,7 @@ module.exports.routes = {
   '/': {
     view: 'homepage'
   },
-  'post /device/cbjtag': {
+  'post /device/cbjTag': {
       controller: 'DeviceController',
       action: 'cbjTag'
   },

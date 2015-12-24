@@ -8,17 +8,18 @@
 module.exports = {
 	cbjTag: function(req, res){
         var id = req.param("id");
-        var cbj_tag = req.param("cbj_tag");
-        device.update({id: id}, {cbj_tag: cbj_tag}).exec(function(err, doc){
+        var cbjTag = req.param("cbjTag");
+        device.update({id: id}, {cbjTag: cbTtag}).exec(function(err, doc){
             if (err) {
-                res.serverError(err);
+                res.end();
+                return;
             }
             res.json(doc);
             res.end();
             });
     },
     search: function(req, res){
-        var location_type = req.param('location_type');
+        var locationType = req.param('locationType');
         var state = req.param('state');
         var city = req.param('city');
         var region = req.param('region');
@@ -26,26 +27,24 @@ module.exports = {
         var id = req.param('id');
         var option = {};
 
-        if(location_type!=null&&location_type!=""){
+        if(location_type){
             option.location_type = location_type;
         }
-        if (state!=null&&state!="") {
+        if (state) {
             option.state = state;
         }
-        if (city!=null&&city!="") {
+        if (city) {
             option.city = city;
         }
-        if(region!=null&&region!=""){
+        if(region){
             option.region = region;
         }
-        if(street!=null&&street!=""){
+        if(street){
             option.street = street;
         }
-        if(id!=null&&id!=""){
+        if(id){
             option.id = id;
         }
-        
-        
         device.find(option).exec(function(err, results){
             if(err){
                 res.status(500);
@@ -69,7 +68,7 @@ module.exports = {
         var minor = req.param('minor');
         device.findOne({uuid: uuid, major: major, minor: minor}).exec(function(err, result){
             var access = result.access;
-            access = (access==null) ? 0 : access;
+            access = (!access) ? 0 : access;
             access = parseInt(access);
             access = (access==NaN) ? 0 : access;
             access++;
